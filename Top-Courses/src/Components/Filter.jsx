@@ -3,7 +3,7 @@ function Filter({filterData}) {
         <div>
             {filterData.map((data) =>{
                 return(
-                    <button>{data.title}</button>
+                    <button key={data.id}>{data.title}</button>
                 )
                 
             })}
