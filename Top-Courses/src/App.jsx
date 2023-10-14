@@ -27,20 +27,22 @@ import Spinner from "./Components/Spinner";
         fetchData();
       },[])
       return (
-          <div>
+          <div className="min-h-screen flex flex-col">
             <div>
               <Navbar />
               </div>
-                <div>
+              <div className="bg-[#2a2a56]">
+              <div>
                 <Filter 
                 filterData={filterData}
                 />
                 </div>
-                <div>
+                <div className="w-11/12 max-w-[1200px] mx-auto flex justify-center items-center flex-wrap min-h-[50vh] ">
                 {
                   loading ? (<Spinner />) : (<Cards courses={courses}/>)
                 }
               
+              </div>
               </div>
           </div>
       )

@@ -12,7 +12,7 @@ function Cards({courses}) {
     getCourses()
     
     return (  
-    <div>
+    <div className="flex flex-wrap justify-center gap-4 mb-4">
         {
             getCourses().map( (course) => {
                 return <Card key={course.id} course={course}/>
