@@ -7,7 +7,7 @@ const Card = ({ review }) => {
     <div className='flex flex-col md:relative'>
         <div className='absolute top-[-7rem]  z-10 mx-auto'>
             <img
-            className='aspect-square rounded-full w-[140px] h-[140px] z-20' 
+            className='aspect-square rounded-full w-[140px] h-[140px] z-20 sticky' 
             src={review.image} />
             <div className='w-[140px] h-[140px] bg-violet-500 rounded-full absolute top-[-6px] left-[10px] -z-10'>
 
@@ -15,7 +15,7 @@ const Card = ({ review }) => {
         </div>
 
         <div className='text-center mt-7'>
-            <p className='font-bold text-2xl capitalize'>{review.name}</p>
+            <p className='font-bold text-2xl capitalize tracking-wide'>{review.name}</p>
         </div>
 
         <div className='text-center '>
