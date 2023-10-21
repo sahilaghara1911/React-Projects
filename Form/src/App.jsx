@@ -13,23 +13,33 @@ const App = () => {
     firstName: "",
     lastName: "",
     comments: "",
-    isVisible: true
+    isVisible: true,
+    mode:"",
+    favCar:""
   })
 
   function changeHandler(e){
+    
+    const {name, value, checked, type} = e.target
     setFormData(prevData => {
       return {
         ...prevData,
-        [e.target.name] : e.target.value,
+        [name] : type === "checkbox" ? checked : value
       }
     })
+  }
+  function submitHandler(e){
+    e.preventDefault();
+    //print
+    console.log("Finally dataa");
+    console.log(formData);
   }
   
   return (
     <div className='flex justify-center'>
-      <form>
+      <form onSubmit={submitHandler}>
         <label>F Name</label>
-        <input type='text' 
+        <input type="text" 
         placeholder='first name' 
         onChange={changeHandler} 
         name='firstName'
@@ -45,6 +55,7 @@ const App = () => {
           value={formData.lastName}
         />
         <br/><br/>
+        <label>comments</label>
         <textarea placeholder='Commentsssss' 
         onChange={changeHandler}
         name='comments'
@@ -55,9 +66,43 @@ const App = () => {
         <input type='checkbox'
         onChange={changeHandler}
         name='isVisible'
-        value={formData.isVisible}
+        checked={formData.isVisible}
         id='isVisible'
         />
+        <br/><br/>
+        <label htmlFor='mode'>Mode</label>
+        <input type='radio'
+        onChange={changeHandler}
+        name='mode'
+        value="dark"
+        id='mode'
+        checked={formData.mode === "dark"}
+        />
+
+        <label htmlFor='mode'>off</label>
+        <input type='radio'
+        onChange={changeHandler}
+        name='mode'
+        value="light"
+        id='mode'
+        checked={formData.mode === "light"}
+        />
+        <br/><br/>
+
+        {/* Drop down */}
+        <label htmlFor='favCar'>Your Fav Car??</label>
+        <select
+        onChange={changeHandler}
+        name='favCar'
+        id='favCar'
+        value={formData.favCar}>
+        <option value="Virtus GT">Virtus GT</option>
+        <option value="Polo GT">Polo GT</option>   
+        <option value="Supraaa">Supraaa</option>   
+        <option value="Endevour">Endevour</option>          
+        </select>
+        <br/> <br/>
+        <input type='submit' value="submit"/>
       </form>
     </div>
   )
