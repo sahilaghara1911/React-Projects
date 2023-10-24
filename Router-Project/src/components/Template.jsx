@@ -1,4 +1,5 @@
 import React from 'react'
+import frameImage from '../assets/frame.png'
 
 const Template = ({title, desc1, desc2, image, formType, setIsLoggedIn}) => {
     return (
@@ -26,8 +27,17 @@ const Template = ({title, desc1, desc2, image, formType, setIsLoggedIn}) => {
         </div>
         
         <div>
-        <img src={ require('../assets/frame.png') } width={558} height={504} loading='lazy'/>
-        <img src={ require('../assets/frame.png') } width={558} height={504} loading='lazy'/>
+        <img src={frameImage}
+        alt='pattern'
+        width={558}
+        height={504}
+        loading='lazy'/>
+
+        <img src={image}
+        alt='studentr'
+        width={558}
+        height={490}
+        loading='lazy'/>
 
         </div>
     </div>
