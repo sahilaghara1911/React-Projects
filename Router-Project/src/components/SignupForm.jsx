@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import toast from 'react-hot-toast'
 import {AiOutlineEyeInvisible, AiOutlineEye} from 'react-icons/ai'
 
 const SignupForm = () => {
@@ -19,6 +20,13 @@ const SignupForm = () => {
         }
     ))
 }
+  function submitHandler(e){
+    e.preventDefault();
+    if(formData.password != formData.confirmpassword) {
+      toast.error("Password  do not match");
+      return
+    }
+  }
   return (
     <div>
       {/* Student -Instuctor tab */}
@@ -27,7 +35,7 @@ const SignupForm = () => {
         <button>Instuctor</button>
       </div>
 
-      <form>
+      <form onSubmit={submitHandler}>
       <div>
       {/* First anem or last name */}
         <label>
@@ -67,7 +75,7 @@ const SignupForm = () => {
             onChange={changeHandler}
             placeholder='Enter the passowrd'
             value={formData.password} />
-            <span onClick={() => {setShowPassword((prev) => {!prev})}}>
+            <span onClick={() => setShowPassword((prev) => !prev) }>
                     {showPassword ? (<AiOutlineEyeInvisible/>) : (<AiOutlineEye />)}
                 </span>
         </label>
