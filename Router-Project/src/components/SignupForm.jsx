@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 import toast from 'react-hot-toast'
 import {AiOutlineEyeInvisible, AiOutlineEye} from 'react-icons/ai'
+import { useNavigate } from 'react-router-dom'
 
-const SignupForm = () => {
+const SignupForm = ({setIsLoggedIn}) => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     firstname:"",
     lastname:"",
@@ -26,6 +29,12 @@ const SignupForm = () => {
       toast.error("Password  do not match");
       return
     }
+
+    setIsLoggedIn(true);
+    toast.success("Account Created");
+    
+    console.log(formData);
+    navigate("/dashboard")
   }
   return (
     <div>
@@ -77,7 +86,7 @@ const SignupForm = () => {
             value={formData.password} />
             <span onClick={() => setShowPassword((prev) => !prev) }>
                     {showPassword ? (<AiOutlineEyeInvisible/>) : (<AiOutlineEye />)}
-                </span>
+            </span>
         </label>
 
         <label>
