@@ -26,6 +26,7 @@ const LoginForm = ({setIsLoggedIn}) => {
         setIsLoggedIn(true);
         toast.success("Logged in")
         navigate("/dashboard")
+        console.log(formData);
     }
     return (
     <div>
