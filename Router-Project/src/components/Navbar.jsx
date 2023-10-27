@@ -5,7 +5,7 @@ import { toast } from "react-hot-toast";
 
 const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
   return (
-    <div className="flex  justify-evenly">
+    <div className="flex  justify-between items-center w-11/12 max-w-[1160px] py-4 mx-auto">
       <Link to="/">
         <img src={logo} alt="Logo" width={160} height={32} loading="lazy" />
       </Link>
