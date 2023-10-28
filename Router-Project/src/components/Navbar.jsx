@@ -11,7 +11,7 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
       </Link>
 
       <nav>
-        <ul className="flex gap-3">
+        <ul className="flex gap-x-6 text-richblack-100">
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -24,15 +24,15 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
         </ul>
       </nav>
 
-      <div className="flex ml-5 gap-3 mr-3">
+      <div className="flex items-center gap-x-4">
         {!isLoggedIn && (
           <Link to="/login">
-            <button>Login</button>
+            <button className="bg-richblack-800 text-richblack-100 py-[8px] px-[12px] rounded-[8px] border border-richblack-700">Log in</button>
           </Link>
         )}
         {!isLoggedIn && (
           <Link to="/signup">
-            <button>Signup</button>
+            <button className="bg-richblack-800 text-richblack-100 py-[8px] px-[12px] rounded-[8px] border border-richblack-700">Sign up</button>
           </Link>
         )}
         {isLoggedIn && (
@@ -40,12 +40,12 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
             <button onClick={() => {
               setIsLoggedIn(false);
               toast.success("Logged Out")
-            }}>Log out</button>
+            }} className="bg-richblack-800 text-richblack-100 py-[8px] px-[12px] rounded-[8px] border border-richblack-700">Log out</button>
           </Link>
         )}
         {isLoggedIn && ( 
           <Link to="/dashboard">
-            <button>Dashboard</button>
+            <button className="bg-richblack-800 text-richblack-100 py-[8px] px-[12px] rounded-[8px] border border-richblack-700">Dashboard</button>
           </Link>
         )}
       </div>
