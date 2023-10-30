@@ -30,25 +30,27 @@ const LoginForm = ({setIsLoggedIn}) => {
     }
     return (
     <div>
-        <form onSubmit={submitHandler}>
-            <label>
-                <p>Email Address<sup>*</sup></p>
+        <form onSubmit={submitHandler} className='flex flex-col w-full gap-y-4 mt-6'>
+            <label className='w-full'>
+                <p className='text-white text-[0.875rem] mb-1'>Email Address<sup className='text-pink-200'>*</sup></p>
                 <input type='email'
                 required
                 value={formData.email}
                 name='email'
                 onChange={changeHandler}
-                placeholder='Enter email id' />
+                placeholder='Enter email id'
+                className='bg-richblack-800 rounded-[0.5rem] text-richblack-5 w-full p-[12px]' />
             </label>
-            <label>
-                <p>Password<sup>*</sup></p>
+            <label  className='w-full'>
+                <p className='text-white text-[0.875rem] mb-1'>Password<sup className='text-pink-200'>*</sup></p>
                 <input type={showPassword ? ("text") : ("password")}
                 required
                 name='password'
                 value={formData.password}
                 onChange={changeHandler}
-                placeholder='Enter the password' />
-                <span onClick={() => setShowPassword((prev) => !prev) }
+                placeholder='Enter the password'
+                className='bg-richblack-800 rounded-[0.5rem] text-richblack-5 w-full p-[12px]' />
+                <span onClick={() => setShowPassword((prev) => !prev) } 
                 >
                     {showPassword ? (<AiOutlineEyeInvisible/>) : (<AiOutlineEye />)}
                 </span>
