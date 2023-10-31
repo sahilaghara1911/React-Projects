@@ -14,7 +14,8 @@ const SignupForm = ({setIsLoggedIn}) => {
     confirmpassword:""
   })
 
-  const [showPassword, setShowPassword] = useState(false)
+  const [showPassword, setShowPassword] = useState(false);
+  const [accountType, setAccountType] = useState("student");
   function changeHandler(e){
     setFormData( (prevData) => (
         {
@@ -39,15 +40,19 @@ const SignupForm = ({setIsLoggedIn}) => {
   return (
     <div>
       {/* Student -Instuctor tab */}
-      <div>
-        <button>Student</button>
-        <button>Instuctor</button>
+      <div className='flex bg-richblack-800 p-1 gap-x-1 my-6 rounded-full max-w-max'>
+        <button 
+        className={`${accountType === "student" ? "bg-richblack-900 text-richblack-5" : "bg-transparent text-richblack-200"} py-2 px-5 rounded-full transition-all duration-200`}
+        onClick={() => setAccountType("student")}>Student</button>
+        <button
+        className={`${accountType === "instructor" ? "bg-richblack-900 text-richblack-5" : "bg-transparent text-richblack-200"} py-2 px-5 rounded-full transition-all duration-200`}
+        onClick={() => setAccountType("instructor")}>Instuctor</button>
       </div>
 
-      <form onSubmit={submitHandler} className='flex flex-col gap-y-4 w-full'>
+      <form onSubmit={submitHandler} className='flex flex-col gap-y-4 '>
       <div className='flex gap-x-4'>
       {/* First anem or last name */}
-        <label>
+        <label className='w-full'>
             <p className='text-white text-[0.875rem] mb-1'>
               First Name<sup className='text-pink-200'>*</sup>
             </p>
@@ -58,7 +63,7 @@ const SignupForm = ({setIsLoggedIn}) => {
             />
         </label>
 
-        <label>
+        <label className='w-full'>
             <p className='text-white text-[0.875rem] mb-1'>
               Last Name<sup className='text-pink-200'>*</sup>
             </p>
@@ -70,7 +75,7 @@ const SignupForm = ({setIsLoggedIn}) => {
         </label>
       </div>
         {/* Email add */}
-        <label>
+        <label className='w-full'>
             <p className='text-white text-[0.875rem] mb-1'>
               Email Address<sup className='text-pink-200'>*</sup>
             </p>
@@ -82,7 +87,7 @@ const SignupForm = ({setIsLoggedIn}) => {
         </label>
         {/* createpassword and confirm password */}
         <div className='flex gap-x-4 w-full '>
-        <label className='relative'>
+        <label className='relative w-full'>
             <p className='text-white text-[0.875rem] mb-1'>
               Create Password<sup className='text-pink-200'>*</sup>
             </p>
@@ -100,7 +105,7 @@ const SignupForm = ({setIsLoggedIn}) => {
             </span>
         </label>
 
-        <label className='relative'>
+        <label className='relative w-full'>
             <p className='text-white text-[0.875rem] mb-1'>
               Confirm Password<sup className='text-pink-200'>*</sup>
             </p>
@@ -110,12 +115,12 @@ const SignupForm = ({setIsLoggedIn}) => {
             value={formData.confirmpassword} 
             className='bg-richblack-800 rounded-[0.5rem] text-richblack-5 w-full p-[12px]'
             />
-            <span onClick={() => {setShowPassword((prev) => {!prev})}}
+            <span onClick={() => setShowPassword((prev) => !prev) }
             className='absolute right-3 top-[38px] cursor-pointer'>
-                    {showPassword ?
-                    (<AiOutlineEyeInvisible fontSize={24} fill='#AFB2BF'/>) : 
+                    {showPassword ? 
+                    (<AiOutlineEyeInvisible fontSize={24} fill='#AFB2BF'/>) :
                     (<AiOutlineEye fontSize={24} fill='#AFB2BF'/>)}
-                </span>
+            </span>
         </label>
         </div>
         <button className='bg-yellow-50 rounded-[8px] font-medium text-richblack-900 px-[12px] py-[8px] mt-6 w-full'>Create Account</button>
