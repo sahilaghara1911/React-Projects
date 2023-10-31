@@ -44,65 +44,81 @@ const SignupForm = ({setIsLoggedIn}) => {
         <button>Instuctor</button>
       </div>
 
-      <form onSubmit={submitHandler}>
-      <div>
+      <form onSubmit={submitHandler} className='flex flex-col gap-y-4 w-full'>
+      <div className='flex gap-x-4'>
       {/* First anem or last name */}
         <label>
-            <p>
-              First Name<sup>*</sup>
+            <p className='text-white text-[0.875rem] mb-1'>
+              First Name<sup className='text-pink-200'>*</sup>
             </p>
             <input type='text' required name='firstname' onChange={changeHandler}
             placeholder='Enter first name'
-            value={formData.firstname} />
+            value={formData.firstname} 
+            className='bg-richblack-800 rounded-[0.5rem] text-richblack-5 w-full p-[12px]'
+            />
         </label>
 
         <label>
-            <p>
-              Last Name<sup>*</sup>
+            <p className='text-white text-[0.875rem] mb-1'>
+              Last Name<sup className='text-pink-200'>*</sup>
             </p>
             <input type='text' required name='lastname' onChange={changeHandler}
             placeholder='Enter last name'
-            value={formData.lastname} />
+            value={formData.lastname} 
+            className='bg-richblack-800 rounded-[0.5rem] text-richblack-5 w-full p-[12px]'
+            />
         </label>
       </div>
         {/* Email add */}
         <label>
-            <p>
-              Email Address<sup>*</sup>
+            <p className='text-white text-[0.875rem] mb-1'>
+              Email Address<sup className='text-pink-200'>*</sup>
             </p>
             <input type='email' required name='email' onChange={changeHandler}
             placeholder='Enter Email Address'
-            value={formData.email} />
+            value={formData.email} 
+            className='bg-richblack-800 rounded-[0.5rem] text-richblack-5 w-full p-[12px]'
+            />
         </label>
         {/* createpassword and confirm password */}
-        <div>
-        <label>
-            <p>
-              Create Password<sup>*</sup>
+        <div className='flex gap-x-4 w-full '>
+        <label className='relative'>
+            <p className='text-white text-[0.875rem] mb-1'>
+              Create Password<sup className='text-pink-200'>*</sup>
             </p>
             <input type={showPassword ? ("text") : ("password")} required name='password'
             onChange={changeHandler}
-            placeholder='Enter the passowrd'
-            value={formData.password} />
-            <span onClick={() => setShowPassword((prev) => !prev) }>
-                    {showPassword ? (<AiOutlineEyeInvisible/>) : (<AiOutlineEye />)}
+            placeholder='Enter passowrd'
+            value={formData.password} 
+            className='bg-richblack-800 rounded-[0.5rem] text-richblack-5 w-full p-[12px]'
+            />
+            <span onClick={() => setShowPassword((prev) => !prev) }
+            className='absolute right-3 top-[38px] cursor-pointer'>
+                    {showPassword ? 
+                    (<AiOutlineEyeInvisible fontSize={24} fill='#AFB2BF'/>) :
+                    (<AiOutlineEye fontSize={24} fill='#AFB2BF'/>)}
             </span>
         </label>
 
-        <label>
-            <p>
-              Confirm Password<sup>*</sup>
+        <label className='relative'>
+            <p className='text-white text-[0.875rem] mb-1'>
+              Confirm Password<sup className='text-pink-200'>*</sup>
             </p>
             <input type={showPassword ? ("text") : ("password")} required name='confirmpassword'
             onChange={changeHandler}
-            placeholder='Enter the confirm passowrd'
-            value={formData.confirmpassword} />
-            <span onClick={() => {setShowPassword((prev) => {!prev})}}>
-                    {showPassword ? (<AiOutlineEyeInvisible/>) : (<AiOutlineEye />)}
+            placeholder='Confirm passowrd'
+            value={formData.confirmpassword} 
+            className='bg-richblack-800 rounded-[0.5rem] text-richblack-5 w-full p-[12px]'
+            />
+            <span onClick={() => {setShowPassword((prev) => {!prev})}}
+            className='absolute right-3 top-[38px] cursor-pointer'>
+                    {showPassword ?
+                    (<AiOutlineEyeInvisible fontSize={24} fill='#AFB2BF'/>) : 
+                    (<AiOutlineEye fontSize={24} fill='#AFB2BF'/>)}
                 </span>
         </label>
         </div>
-        <button>Create Account</button>
+        <button className='bg-yellow-50 rounded-[8px] font-medium text-richblack-900 px-[12px] py-[8px] mt-6 w-full'>Create Account</button>
       </form>
     </div>
   )
