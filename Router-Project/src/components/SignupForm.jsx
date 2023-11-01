@@ -15,6 +15,7 @@ const SignupForm = ({setIsLoggedIn}) => {
   })
 
   const [showPassword, setShowPassword] = useState(false);
+  const [showPassword1, setShowPassword1] = useState(false);
   const [accountType, setAccountType] = useState("student");
   function changeHandler(e){
     setFormData( (prevData) => (
@@ -30,17 +31,20 @@ const SignupForm = ({setIsLoggedIn}) => {
       toast.error("Password  do not match");
       return
     }
-
+    const finaldata = {
+      ...formData,
+      accountType
+    }
     setIsLoggedIn(true);
     toast.success("Account Created");
     
-    console.log(formData);
+    console.log(finaldata);
     navigate("/dashboard")
   }
   return (
     <div>
       {/* Student -Instuctor tab */}
-      <div className='flex bg-richblack-800 p-1 gap-x-1 my-6 rounded-full max-w-max'>
+      <div className='flex bg-richblack-800 p-1 gap-x-1 my-6 rounded-full max-w-max overflow-hidden'>
         <button 
         className={`${accountType === "student" ? "bg-richblack-900 text-richblack-5" : "bg-transparent text-richblack-200"} py-2 px-5 rounded-full transition-all duration-200`}
         onClick={() => setAccountType("student")}>Student</button>
@@ -109,15 +113,15 @@ const SignupForm = ({setIsLoggedIn}) => {
             <p className='text-white text-[0.875rem] mb-1'>
               Confirm Password<sup className='text-pink-200'>*</sup>
             </p>
-            <input type={showPassword ? ("text") : ("password")} required name='confirmpassword'
+            <input type={showPassword1 ? ("text") : ("password")} required name='confirmpassword'
             onChange={changeHandler}
             placeholder='Confirm passowrd'
             value={formData.confirmpassword} 
             className='bg-richblack-800 rounded-[0.5rem] text-richblack-5 w-full p-[12px]'
             />
-            <span onClick={() => setShowPassword((prev) => !prev) }
+            <span onClick={() => setShowPassword1((prev) => !prev) }
             className='absolute right-3 top-[38px] cursor-pointer'>
-                    {showPassword ? 
+                    {showPassword1 ? 
                     (<AiOutlineEyeInvisible fontSize={24} fill='#AFB2BF'/>) :
                     (<AiOutlineEye fontSize={24} fill='#AFB2BF'/>)}
             </span>

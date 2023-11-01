@@ -30,7 +30,7 @@ const Template = ({title, desc1, desc2, image, formType, setIsLoggedIn}) => {
             </button>
         </div>
         
-        <div className='relative w-11/12 max-w-[450px]'>
+        <div className='relative w-11/12 max-w-[450px] '>
         <img src={frameImage}
         alt='pattern'   
         width={558}
