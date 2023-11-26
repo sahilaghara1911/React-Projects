@@ -30,6 +30,11 @@ export default function AppContextProvider({children}) {
         setLoading(false)
     }
 
+    function handlePageChange(page) {
+        setPage(page);
+        fetchBlogPosts(page);
+    }
+
     const value = {
         loading,
         setLoading,
