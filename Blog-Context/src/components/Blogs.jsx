@@ -15,7 +15,14 @@ const Blogs = () => {
             posts.length === 0 ?
             (<div>No Post Found</div>)
             :
-            (posts.map( (post) => (<Card />)))
+            (posts.map( (post) => (
+              <div>
+                <p>{post.title}</p>
+                <p>
+                  By <span>{post.author}</span> on <span>{post.category}</span>
+                </p>
+              </div>
+            )))
           
         )
       }
