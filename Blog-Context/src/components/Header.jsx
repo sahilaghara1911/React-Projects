@@ -7,6 +7,7 @@ const Header = () => {
         <h1>
         Code Help Blog
         </h1>
+        
       </header>
     </div>
   )
