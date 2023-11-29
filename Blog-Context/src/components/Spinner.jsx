@@ -3,7 +3,7 @@ import '../index.css'
 
 const Spinner = () => {
   return (
-    <div>
+    <div className='flex justify-center items-center h-screen'>
     <div class="custom-loader"></div>
     </div>
   )
