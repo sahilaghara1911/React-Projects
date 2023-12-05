@@ -5,12 +5,18 @@ import './index.css'
 import { Provider } from 'react-redux'
 import { store } from './redux/Store.js'
 import {BrowserRouter} from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
+import { Toaster } from 'react-hot-toast'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
+  
   <BrowserRouter>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    
+      <Provider store={store}>
+        <App />
+        <Toaster />
+      </Provider>
+    
   </BrowserRouter>
   
 )
