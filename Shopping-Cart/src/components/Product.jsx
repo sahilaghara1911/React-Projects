@@ -18,12 +18,12 @@ const Product = ({post}) => {
   }
 
   return (
-    <div>
+    <div className='flex flex-col items-center justify-between hover:scale-110 duration-300 transition-all ease-in shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)] p-4 gap-3 mt-10 ml-5 rounded-xl'>
       <div>
-        <p>{post.title}</p>
+        <p className='text-gray-700 font-semibold text-lg truncate w-40 mt-1 text-left'>{post.title}</p>
       </div>
       <div>
-        <p>{post.description}</p>
+        <p className='w-40 text-gray-400 font-normal text-[10px] text-left'>{post.description.split(" ").slice(0,10).join(" ") + '...'}</p>
       </div>
       <div>
         <img src={post.image} />
